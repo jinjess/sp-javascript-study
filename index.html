@@ -3,8 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>javascript 2주차</title>
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
+<style>
+    #aa{
+        width: 100px; height:100px; background:#f9f; border:1px solid #988f;
+    }
+    li{
+        /*list-style: none;*/
+    }
+    li.on{ background-color:steelblue; font-weight:bold;}
+</style>
 <body>
+<div id="aa"></div>
 
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+    <li>10</li>
+</ul>
+
+<script type="text/javascript">
+
+    var element = document.getElementById('aa');
+    var $element = $("#aa");
+
+    //element(javascript DOM) / $element (jqeury DOM) 보여주는게 다름.
+
+    var $li = $("li");
+
+
+</script>
 </body>
 </html>

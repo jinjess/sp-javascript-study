@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>javascript 1주차</title>
+    <link rel="stylesheet" href="css/secondweek.css">
+</head>
+<body>
+/*--- 데이터 종류 -- */
+/*
+var aa = "알미";
+var bb = 1000;
+console.log(typeof(aa + bb));
+// javascript의 typeof는 유연하다.
+//숫자를 문자로, 문자를 숫자로 의도적으로 바꿀 수 있는데, 그 의도에 따라 쉽게 js의 typeof가 변한다.
+
+console.log(bb);
+
+var jj = "헬로우";
+var rr = "월드";
+var ii = 40;
+console.log(jj + rr);
+console.log(jj +  ii);
+
+//숫자 + 숫자 = 숫자
+//숫자 + 문자 = 문자
+//문자 + 문자 = 문자
+
+/*------ 전역 / 지역 -------*/
+/*
+function(){
+console.log('함수호출');
+};
+이건 이름이 없어서 호출 할 수 없는 오류임.
+*/
+/*
+function A(){
+console.log(A);
+};
+A를 어떤 변수로 생각하기떄문에 호출이 안되는 케이스이다.
+*/
+/*
+var d = 3333;
+var c = "셋";
+var b = '1111'; // 영향 범위 전체 - console.log(b) 호출 가능.
+var a = function(){
+var d = '하나'; // 지역변수로 function안에서 활동 할 수 있는 변수.
+console.log('위' + d);
+};
+a();
+console.log('아래'+d); //ㄱ:
+
+
+//ㄱ:a 함수를 호출하지 않았기때문에 그 안에 있는 var d는 호출되지 않고, 상위에있는 var d가 호출뢴다.
+// 선언되지않은 변수를 넣으면 not defined ; 값도 없고 선언도 안된것임. referenceError
+
+*/
+var d = 3333;
+var c = "셋";
+var b = '1111'; // 영향 범위 전체 - console.log(b) 호출 가능.
+var a = function(){
+d = '하나';
+/*
+59~62줄까지는 d는 333값을 가져왔으나, 63번째 줄에 와서 333 = '하나'가 되서 3333이 죽고
+d의 변수 값은 '하나'라고 바뀐 것이다. 그래서 function내부 console과 바깥 console에 호출되는 D의 값은 '하나'이다.
+*/
+console.log('위' + d);
+};
+a();
+console.log('아래'+d); //ㄱ:
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>parallax :D</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <ol>
+        <li><a href="javascript:;"></a></li>
+        <li><a href="javascript:;"></a></li>
+        <li><a href="javascript:;"></a></li>
+    </ol>
+</div>
+
+<script>
+
+    var $page = $('.container div');
+    var pageCount = 0;
+    var pageColor;
+
+    for(var i = 0; i < $page.length; i++){
+        if( i < $page.length){
+            pageCount = pageCount + 1;
+            $page.eq(i).addClass('page0' + pageCount);
+        }
+        console.log(i);
+    }
+
+
+
+</script>
+</body>
+</html>

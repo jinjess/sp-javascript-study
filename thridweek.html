@@ -3,25 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <title>3주차</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js">
+    <style>
+        .sp{
+            width:83.3px; height:100px;
+            border:1px solid #000;
+            background:url(images/pig.jpg);
+        }
+    </style>
 </head>
 <body>
-<!--
-동사 메소드
-명사 클래스
 
-연산 ;  +/-x / 비교 ; 맞나아니냐
-조건 ; if / else if / else
 
-= ; 값을 대입
-== ; 값을 비교
-=== ; 값을 비교 (데이터 형태까지 값을 비교)
+<div class="sp"></div>
 
-innerHTML
-outerHML
 
-*논리연산자
+<!--<ul id="hi">-->
+    <!--<li></li>-->
+    <!--<li></li>-->
+    <!--<li></li>-->
+    <!--<li></li>-->
+    <!--<li></li>-->
+    <!--<li></li>-->
+    <!--<li></li>-->
+    <!--<li></li>-->
+    <!--<li></li>-->
+    <!--<li></li>-->
+    <!--<li></li>-->
+    <!--<li></li>-->
+    <!--<li></li>-->
+    <!--<li></li>-->
+    <!--<li></li>-->
+<!--</ul>-->
 
--->
 
+<script>
+    // var a = document.getElementById("hi");
+    // var b = hi.getElementsByTagName("li");
+    // var className = 'class'; // var className; 같은것
+    // var classCount = 0;
+    // var $li = $('li');
+    //
+    //
+    // for(var i = 0; i<$li.length; i++){
+    //     if(i % 3 === 0){
+    //         classCount = classCount + 1;
+    //     }
+    //     $li.eq(i).addClass(className + classCount);
+    //
+    // }
+
+    /*pic 프리퀀스 만들기 js*/
+    //settimeout , setInterval 시간의 지연을주고 싶을때, 쓰는 함수  ex.캔버스애니메이션// setInterval(인자,시간인자)
+    //for문은 시간지연으로 해줄 수 없음.
+
+    var width = 83.3;
+    var i = 0;
+    var interval = setInterval(function(){
+        if(i > 10){
+            i = 0;
+        }
+        i = i + 1;
+        console.log(i);
+        $('.sp').css({'background-position':-(width * i) + 'px 0px'});
+    },100);
+
+
+</script>
 </body>
 </html>

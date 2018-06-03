@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>4주차</title>
+</head>
+<body>
+
+<script>
+    // function who (n,a,id){
+    //     var _this = this;
+    //     this.name = n; // name = property
+    //     this.age = a;
+    //     this.idNumber = id;
+    //     this.from = function(id){
+    //         // console.log(this.name + "의 고향은" + id + "입니다");
+    //         function CC (){
+    //             console.log(_this);
+    //         }
+    //         CC();
+    //     };
+    //     return this;
+    //
+    // }
+    function who (n,a,id){
+        this.name = n + a;
+    }
+    var me = new who("areum" , 27);
+
+</script>
+</body>
+</html>

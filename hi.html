@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        
+        button {
+            display: inline-block;
+            background: #fff;}
+        
+        ul.frame {}
+        ul.frame li {
+            display: none;}
+        ul.frame li.on {
+            display: block;}
+        ul.dots li.on button {
+            background: palevioletred;}
+
+    </style>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+    <ul class="frame">
+        <!--<li></li>-->
+    </ul>
+    <div class="con">
+        <button class="arrow" data-role="prev"> < </button>
+        <button class="arrow" data-role="next"> > </button>
+        <ul class="dots">
+           <!--<li></li>-->
+        </ul>
+    </div>
+
+
+<script>
+
+    // var slideArr = [
+    //     'http://via.placeholder.com/350x150?text=img1',
+    //     'http://via.placeholder.com/350x150?text=img2',
+    //     'http://via.placeholder.com/350x150?text=img3',
+    //     'http://via.placeholder.com/350x150?text=img4',
+    //     'http://via.placeholder.com/350x150?text=img5'
+    // ];
+
+    function slide(o){
+
+        var defaultOpt = {
+            initCnt:0
+        }
+
+        var option = $.extend({}, defaultOpt, o);
+
+        var $frameUl = $('ul.frame');
+        var $dotUl = $('ul.dots');
+        // var $li = $('li', $ul);
+        var $li;
+        var $conBox = $('.con');
+        var slideLength = o.imgs.length;
+        var index;
+
+        function build(){
+            for(var i = 0; i < o.imgs.length; i++){
+                $frameUl.append('<li><img src="' + o.imgs[i] +'"></li>');
+                $dotUl.append('<li><button>'+ (i+1) +'</button></li>');
+            }
+
+            $li = $('li', $frameUl);
+
+            // init();
+
+        };
+
+        function init(){
+            $li.eq(o.initCnt).addClass('on');
+            $('li', $dotUl).eq(o.initCnt).addClass('on');
+
+            index = o.initCnt;
+        };
+
+        function eventBind(){
+            $(document).on('click', 'button', function(){
+
+                var $this = $(this);
+                if($this.is('.arrow')){
+                    console.log('좌우중 아무거나 클릭');
+
+                    switch($this.attr('data-role')){
+                        case 'prev':
+                            //왼
+                            move(index-1);
+                            break;
+                        case 'next':
+                            //오
+                            console.log(index);
+                            if(index >= o.imgs.length-1){
+                                move(0);
+                            }else {
+                                move(index + 1);
+                            }
+                            console.log(index);
+                            break;
+                    }
+
+                }else{
+                    console.log('도트 클릭');
+
+                    console.log( $this.parent().index() );
+                    move($this.parent().index());
+                }
+
+            })
+
+
+        }
+
+        this.move = function(i){
+
+            console.log(i);
+
+            $li.eq(i).show().siblings().hide();
+            index = i;
+
+            $('li', $dotUl).eq(i).addClass('on').siblings().removeClass('on');
+
+
+        };
+
+        build();
+        init();
+        eventBind();
+
+        return this;
+
+    };
+
+    var aa;
+    $(function(){
+        aa = new slide({
+            imgs : [
+                'http://via.placeholder.com/350x150?text=img1',
+                'http://via.placeholder.com/350x150?text=img2',
+                'http://via.placeholder.com/350x150?text=img3',
+                'http://via.placeholder.com/350x150?text=img4',
+                'http://via.placeholder.com/350x150?text=img5'
+            ],
+            arrPrevText : 'Left!!',
+            arrNextText : 'Right~~',
+            initCnt : 2
+        });
+    })
+
+</script>
+
+</body>
+</html>

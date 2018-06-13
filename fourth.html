@@ -3,29 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>4주차</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
 
 <script>
-    // function who (n,a,id){
-    //     var _this = this;
-    //     this.name = n; // name = property
-    //     this.age = a;
-    //     this.idNumber = id;
-    //     this.from = function(id){
-    //         // console.log(this.name + "의 고향은" + id + "입니다");
-    //         function CC (){
-    //             console.log(_this);
-    //         }
-    //         CC();
-    //     };
-    //     return this;
-    //
-    // }
     function who (n,a,id){
-        this.name = n + a;
+        var _this = this;
+        this.name = n; // name = property
+        this.age = a;
+        this.idNumber = id;
+        this.from = function(id){
+            // console.log(this.name + "의 고향은" + id + "입니다");
+            function CC (){
+                console.log(_this);
+            }
+            CC();
+        };
+        return this;
+
     }
-    var me = new who("areum" , 27);
+    function who (n,a,id){
+        this.name = n;
+    }
+    // var me = new who("areum" , 27);
+    var me = new who("areum");
+
+    function am (m){
+        this.hi = m;
+    }
+    var hello = new am("히히");
+    /*
+    [] ; 단수 배열
+    {}; 객체
+
+     */
+
 
 </script>
 </body>
